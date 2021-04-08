@@ -24,9 +24,25 @@ Iremos:
 
 ## Parte 2: Leitura dos dados
 
-A seguir, um exemplo de como iremos visualizar:
+Concluída a primeira etapa do projeto, vamos a parte visual do trabalho.
+
+Devemos ter um sistema feito em Tkinter que nos possibilite ler um tabela excel ou arquivo .csv e nos mostre em tela. A seguir, um exemplo de como iremos visualizar:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen1.png" width="700">
+
+Devemos ter a possibilidade de inserir novos itens a tabela, como também compreender melhor os dados através de gráficos.
+
+### Base de dados
+
+Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.
+O arquivo encontra-se em: https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv
+
+O comando que deve ser executado para ler `data.csv` é:
+```
+df = pd.read_csv(<localizacao_e_nome_do_arquivo>)
+```
+em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo, a pasta em que o arquivo se encontra e o arquivo. Por exemplo `C:/Jose/data.csv`
+
 
 ## Para compreensão dos dados
 
@@ -51,14 +67,3 @@ import pandas
 A seguir, dois exmeplos de gráficos gerados:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="400"> <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen3.png" width="400">
-
-### Base de dados
-
-Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.
-O arquivo encontra-se em: https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv
-
-O comando que deve ser executado para ler `data.csv` é:
-```
-df = pd.read_csv(<localizacao_e_nome_do_arquivo>)
-```
-em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo, a pasta em que o arquivo se encontra e o arquivo. Por exemplo `C:/Jose/data.csv`

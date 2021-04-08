@@ -50,9 +50,15 @@ import pandas
 
 A seguir, dois exmeplos de gráficos gerados:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="500">
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen3.png" width="500">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="400"> <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen3.png" width="400">
 
 ### Base de dados
 
 Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.
+O arquivo encontra-se em: https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv
+
+O comando que deve ser executado para ler `data.csv` é:
+```
+df = pd.read_csv(<localizacao_e_nome_do_arquivo>)
+```
+em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo, a pasta em que o arquivo se encontra e o arquivo. Por exemplo `C:/Jose/data.csv`

@@ -14,7 +14,21 @@ A plataforma africana [Zindi](https://zindi.africa/) é um ambiente em que profi
 
 Em 2019, a empresa Xente, que trabalha com pagamentos online, e-commerce e serviços financeiros em Uganda, propôs um [desafio no Zindi](https://zindi.africa/competitions/xente-fraud-detection-challenge), com finalidade de identificar transações verdadeiras ou fraudulentas usando **Ciência de Dados**.
 
-### Para compreensão dos dados
+# Projeto 
+
+Iremos:
+- simular o cadastro de transações, abordando os conteúdos apresentados no curso;
+- fazer a leitura de dados e projeção através de interface gráfica.
+
+## Parte 1: Escrita dos dados
+
+## Parte 2: Leitura dos dados
+
+A seguir, um exemplo de como iremos visualizar:
+
+![alt text](https://github.com/dunfrey/OOP_ProjectClass/blob/main/projeto_final.jpeg)
+
+## Para compreensão dos dados
 
 As máquinas têm capacidade de processar dados e números, diferentemente dos humanos, que entendem muito melhor as informações visualmente. Por isso, para entender os dados é necessário transformá-los  de linguagem de máquina para a linguagem humana, tornando os dados **mais compreensiveis** e **facilitando o processo de realizar perguntas e hipoteses sobre os dados**.
 
@@ -33,8 +47,6 @@ Para gerar estes gráficos, vamos utilizar uma biblioteca chamada [Pandas](https
 # fazendo importe da biblioteca pandas na linguagem Python
 import pandas
 ```
-## Base de dados
+### Base de dados
 
 Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.
-
-A seguir, um exemplo de como iremos visualizar:

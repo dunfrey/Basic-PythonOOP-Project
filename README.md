@@ -26,7 +26,7 @@ Iremos:
 
 A seguir, um exemplo de como iremos visualizar:
 
-![alt text](https://github.com/dunfrey/OOP_ProjectClass/blob/main/projeto_final.jpeg)
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen1.png" width="700">
 
 ## Para compreensão dos dados
 
@@ -47,6 +47,12 @@ Para gerar estes gráficos, vamos utilizar uma biblioteca chamada [Pandas](https
 # fazendo importe da biblioteca pandas na linguagem Python
 import pandas
 ```
+
+A seguir, dois exmeplos de gráficos gerados:
+
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="500">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen3.png" width="500">
+
 ### Base de dados
 
 Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.

@@ -32,6 +32,10 @@ Devemos ter um sistema feito em Tkinter que nos possibilite ler um tabela excel 
 
 Devemos ter a possibilidade de inserir novos itens a tabela, como também compreender melhor os dados através de gráficos.
 
+Sugestões de GUI para criar suas janelas gráficas: 
+- [Pygubu](https://github.com/alejandroautalan/pygubu-designer): funciona tanto em sistemas Linux, quanto Windows (eu utilizei este para criar esta versão *demo*);
+- 
+
 ### Base de dados
 
 Iremos utilizar um arquivo no formato `.csv`, que iremos ler utilizando a biblioteca Pandas e visualizaremos em nossa interface gráfica.
@@ -58,7 +62,7 @@ Para inicial, e melhor, compreensão os dados, 4 (quatro) gráficos podem ser ut
 
 Estes quatro gráficos serão necessários e implementados neste trabalho.
 
-Para gerar estes gráficos, vamos utilizar uma biblioteca chamada [Pandas](https://pandas.pydata.org/getting_started.html), attravés da chamada no nosso código da seguinte maneira:
+Para gerar estes gráficos, vamos utilizar uma biblioteca chamada [Pandas](https://pandas.pydata.org/getting_started.html), através da chamada no nosso código da seguinte maneira:
 ```
 # fazendo importe da biblioteca pandas na linguagem Python
 import pandas

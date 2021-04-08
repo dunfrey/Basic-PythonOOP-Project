@@ -34,7 +34,6 @@ Devemos ter a possibilidade de inserir novos itens a tabela, como também compre
 
 Sugestões de GUI para criar suas janelas gráficas: 
 - [Pygubu](https://github.com/alejandroautalan/pygubu-designer): funciona tanto em sistemas Linux, quanto Windows (eu utilizei este para criar esta versão *demo*);
-- 
 
 ### Base de dados
 

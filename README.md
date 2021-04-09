@@ -67,6 +67,6 @@ Para gerar estes gráficos, vamos utilizar uma biblioteca chamada [Pandas](https
 import pandas
 ```
 
-A seguir, dois exmeplos de gráficos gerados:
+A seguir, um exmeplo de gráfico histograma gerado:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="400"> <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen3.png" width="400">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="400">

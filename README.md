@@ -22,6 +22,54 @@ Iremos:
 
 ## Parte 1: Escrita dos dados
 
+Classe `Util`
+- atributos:
+  - `None`
+- métodos
+  - `genId()`:
+    - parametros: uma lista
+    - retorno: gera um número ainda não contido na lista
+
+Classe `Relogio`
+- atributos:
+  - `hora - minuto - segundo : int`
+    - preenchido em `__init__` com set_hora()
+- métodos
+  - `set_hora()`:
+    - parametros: hora - minuto - segundo
+    - retorno: `pass`
+  - `__str__`
+
+Classe `Calendario`
+- atributos:
+  - `ano - mes - dia : int`
+    - preenchido em `__init__` com set_data()
+- métodos
+  - `set_data()`:
+    - parametros: ano - mes - dia
+    - retorno: `pass`
+  - `__str__`
+
+Classe `RelogioCalendario`
+- atributos:
+  - `Relogio - Calendario`
+- métodos
+  - `__str__`
+
+Classe `ClienteEntity` (Abstrata)
+- atributos:
+  - `id_list: list` (privado) @property
+    - preenchido em `__init__` com Util.genId()
+  - `id_usuario: int`
+    - preenchido em `__init__` com Util.genId()
+  - `None`
+
+Ao final, a classe Transacao será composta por outras classes. Uma visão macro é a seguinte:
+
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/parte1.png" width="700">
+
+**Além do código, também deve ser entregue o diagrama de classes.**
+
 ## Parte 2: Leitura dos dados
 
 Concluída a primeira etapa do projeto, vamos a parte visual do trabalho.

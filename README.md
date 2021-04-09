@@ -28,7 +28,7 @@ Concluída a primeira etapa do projeto, vamos a parte visual do trabalho.
 
 Devemos ter um sistema feito em Tkinter que nos possibilite ler um tabela excel ou arquivo .csv e nos mostre em tela. A seguir, um exemplo de como iremos visualizar:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen1.png" width="700">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig1.png" width="700">
 
 Devemos ter a possibilidade de inserir novos itens a tabela, como também compreender melhor os dados através de gráficos.
 
@@ -69,4 +69,4 @@ import pandas
 
 A seguir, um exmeplo de gráfico histograma gerado:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/screen2.png" width="400">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="400">

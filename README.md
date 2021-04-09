@@ -143,7 +143,7 @@ Para melhor compreensão os dados, 4 (quatro) gráficos podem ser utilizados:
 - [**Dagrama de caixas**](https://pt.wikipedia.org/wiki/Diagrama_de_caixa): também usado para entender a distribuição dos dados, entendendo a concentração de valores de cada atributo;
 - [**FDA**](https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_distribui%C3%A7%C3%A3o_acumulada) (Função de distribuição acumulada): usado para saber qual a probabilidade de um valor ser igual ou superior a um determinado valor.
 
-Estes quatro gráficos devem implementados neste trabalho.
+Estes quatro gráficos devem implementados neste trabalho, e deve ser permitido a seleção de quais atributos queremos analisar.
 
 Você pode verificar alguns comandos de manipulação de dataframe  e gerar os gráficos [neste arquivo](https://github.com/dunfrey/OOP_ProjectClass/blob/main/comandos_pandas.py) ou acessar o site [Pandas](https://pandas.pydata.org/docs/index.html).
 

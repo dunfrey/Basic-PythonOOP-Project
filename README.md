@@ -24,10 +24,7 @@ Iremos:
 
 Esta primeira parte do projeto iremos fazer simulações, sem interface gráfica, apenas em código, de transações financeiras.
 
-3 componentes principais devem existir:
-- Um cliente
-- Um produto
-- Um hardware pra efetuar a compra
+3 componentes principais devem existir: 1) Um cliente; 2) Um produto, e; 3) Um hardware pra efetuar a compra.
 
 E, ao final, iremos "gerar" um último componente:
 - Uma transação

@@ -72,4 +72,4 @@ Você pode verificar alguns comandos de manipulação de dataframe  e gerar os g
 
 A seguir, um exemplo de gráfico histograma gerado:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="400">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="700">

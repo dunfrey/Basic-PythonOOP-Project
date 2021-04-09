@@ -22,7 +22,18 @@ Iremos:
 
 ## Parte 1: Escrita dos dados
 
-Seu código deve conter:
+Esta primeira parte do projeto iremos fazer simulações, sem interface gráfica, apenas em código, de transações financeiras.
+
+3 componentes principais devem existir:
+- Um cliente
+- Um produto
+- Um hardware pra efetuar a compra
+
+E, ao final, iremos "gerar" um último componente:
+- Uma transação
+
+Para isso, devemos considerar que seu código deve conter as seguintes classes:
+
 - Classe `Util`
   - um método que recebe uma lista e retorne um número aeatório ainda não contido na lista
 - Classe `Relogio` e Classe `Calendario`
@@ -54,7 +65,9 @@ Seu código deve conter:
     - use decorador para inserir e obter o valor do atributo
     - armazena todos os id de clientes
 
-Ao final, a classe Transacao será composta por outras classes. Uma visão macro é a seguinte:
+Lembre-se que a classe Transacao deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
+
+Uma visão macro é a seguinte:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/parte1.png" width="700">
 
@@ -86,7 +99,7 @@ Hardware:
 1 - 1
 ```
 
-## IMPORTANTE
+### IMPORTANTE
 Além do código, também deve ser entregue o diagrama de classes.
 
 ## Parte 2: Leitura dos dados

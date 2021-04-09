@@ -22,53 +22,72 @@ Iremos:
 
 ## Parte 1: Escrita dos dados
 
-Classe `Util`
-- atributos:
-  - `None`
-- métodos
-  - `genId()`:
-    - parametros: uma lista
-    - retorno: gera um número ainda não contido na lista
-
-Classe `Relogio`
-- atributos:
-  - `hora - minuto - segundo : int`
-    - preenchido em `__init__` com set_hora()
-- métodos
-  - `set_hora()`:
-    - parametros: hora - minuto - segundo
-    - retorno: `pass`
-  - `__str__`
-
-Classe `Calendario`
-- atributos:
-  - `ano - mes - dia : int`
-    - preenchido em `__init__` com set_data()
-- métodos
-  - `set_data()`:
-    - parametros: ano - mes - dia
-    - retorno: `pass`
-  - `__str__`
-
-Classe `RelogioCalendario`
-- atributos:
-  - `Relogio - Calendario`
-- métodos
-  - `__str__`
-
-Classe `ClienteEntity` (Abstrata)
-- atributos:
-  - `id_list: list` (privado) @property
-    - preenchido em `__init__` com Util.genId()
-  - `id_usuario: int`
-    - preenchido em `__init__` com Util.genId()
-  - `None`
+Seu código deve conter:
+- Classe `Util`
+  - um método que recebe uma lista e retorne um número aeatório ainda não contido na lista
+- Classe `Relogio` e Classe `Calendario`
+- Classe `RelogioCalendario`
+  - deve ser uma subclasse de `Relogio` e `Calendario`
+  - formatação de saída `__str__`: `YYYY/mm/ddTHH:mm:ssZ`
+- Classe `ClienteEntity`
+  - Abstrata
+  - contém 1 (um) atributo de classe privado
+    - use decorador para inserir e obter o valor do atributo
+    - armazena todos os id de clientes
+  - contém 1 (um) atributo de instância, que armazena o id do objeto instanciado
+- Classe `Pessoa`
+  - é subclasse de `ClienteEntity`
+  - possui 2 (dois) atributos de instância: nome da pessoa e id da pessoa
+- Classe `Cliente`
+  - é subclasse de `Pessoa`
+  - possui 1 (um) atributo de instância. Armazena o montante de dinheiro do objeto
+- Classe `Produto`
+  - deve conter todas as informações de um produto, que os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
+  - deve também conter pelo menos um método estático, no qual seja possível acessar uma lista de todos os itens instânciados
+- Classe `HardwareConfig`
+  - contém 2 (dois) atributos de classe privado: id de provedor e id de canal
+    - use decorador para inserir e obter o valor do atributo
+    - use valor padrão 1, para os dois casos
+- Classe `Transacao`
+  - deve conter todas as informações de uma transacao, ou seja, dados como informacoes do cliente, do produto, o hardware que foi utilizado para fazer a transacao, dia e hora da transacao 
+  - contém 1 (um) atributo de classe privado
+    - use decorador para inserir e obter o valor do atributo
+    - armazena todos os id de clientes
 
 Ao final, a classe Transacao será composta por outras classes. Uma visão macro é a seguinte:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/parte1.png" width="700">
 
-**Além do código, também deve ser entregue o diagrama de classes.**
+### Alguns exemplos de resultado esperado:
+código Produto:
+```
+pd1 = Produto(13, 2, 'airtime', 152.2)
+pd2 = Produto(8, 2, 'utility_bill', 69.52)
+pd3 = Produto(3, 1, 'utility_bill', 75.68)
+```
+saída Produto:
+```
+id: 3 - Valor: $75.68 - Estrategia de Preco: 1 - Categoria: utility_bill 
+id: 8 - Valor: $69.52 - Estrategia de Preco: 2 - Categoria: utility_bill 
+id: 13 - Valor: $152.2 - Estrategia de Preco: 2 - Categoria: airtime 
+```
+
+código Transacao:
+```
+transacao_1 = Transacao(c1, pd2, hd_config, hora_transacao)
+```
+saída Transacao:
+```
+Cliente:
+Nome: Claus - Id: 9882 - Valor em Conta: 100.25
+Produto:
+id: 8 - Valor: $69.52 - Estrategia de Preco:: 2 - Categoria: utility_bill
+Hardware:
+1 - 1
+```
+
+## IMPORTANTE
+Além do código, também deve ser entregue o diagrama de classes.
 
 ## Parte 2: Leitura dos dados
 

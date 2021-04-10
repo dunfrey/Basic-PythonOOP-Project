@@ -1,4 +1,4 @@
-📝 *Portuguese version*
+> 📝 *Portuguese version*
 
 # Projeto Final - ECT2540
 
@@ -18,77 +18,90 @@ Em 2019, a empresa Xente, que trabalha com pagamentos online, e-commerce e servi
 
 # Projeto 
 
-Iremos:
-- simular o cadastro de transações, abordando os conteúdos apresentados no curso;
-- fazer a leitura de dados e projeção através de interface gráfica.
+Ao final de cada etapa, iremos poder:
+> - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
+> - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
 ## Parte 1: Escrita dos dados
 
-Esta primeira parte do projeto iremos fazer simulações, sem interface gráfica, apenas em código, de transações financeiras.
+Primeiro, iremos simular um sistema que registra transações financeiras, sem fazer uso de interface gráfica. 
 
-3 componentes principais devem existir: 1) Um cliente; 2) Um produto, e; 3) Um hardware pra efetuar a compra.
+Como você pode ter imaginado, para isso acontecer, 3 (três) componentes principais devem existir: 
+> 1) Um cliente; 
+> 2) Um produto, e; 
+> 3) Um hardware (computador) pra efetuar a transação.
 
-E, ao final, iremos "gerar" um último componente:
-- Uma transação
+Com posse de informações desses três componentes, podemos "gerar" uma transação.
 
-Para isso, devemos considerar que seu código deve conter as seguintes classes:
+Portanto, para isso devemos considerar que seu código deve conter, **pelo menos**, as seguintes classes:
 
 - Classe `Util`
-  - um método que recebe uma lista e retorne um número aeatório ainda não contido na lista
+  - contém um método publico que recebe uma lista como parâmetro e retorna um número inteiro aleatório, não contido na lista de entrada.
 - Classe `Relogio` e Classe `Calendario`
+  - irá conter apenas métodos de *set* hora e relógio para cada uma das classes
 - Classe `RelogioCalendario`
-  - deve ser uma subclasse de `Relogio` e `Calendario`
-  - formatação de saída `__str__`: `YYYY/mm/ddTHH:mm:ssZ`
+  - é do tipo herança múltipla de `Relogio` e `Calendario`
+  - método `__str__` &#8594; `YYYY/mm/ddTHH:mm:ssZ`
 - Classe `ClienteEntity`
-  - Abstrata
-  - contém 1 (um) atributo de classe privado
-    - use decorador para inserir e obter o valor do atributo
-    - armazena todos os id de clientes
-  - contém 1 (um) atributo de instância, que armazena o id do objeto instanciado
+  - é classe abstrata
+  - contém 1 (uma) lista de classe protegida
+    - use decorador para *set* e *get*
+    - sua função é de armazenar todos os *ids* dos clientes já registrados
+  - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
 - Classe `Pessoa`
   - é subclasse de `ClienteEntity`
-  - possui 2 (dois) atributos de instância: nome da pessoa e id da pessoa
+  - possui 2 (dois) atributos de instância que são por guardar o nome da pessoa e o seu id (use o método `genId()` da classe `Util` para gerar este *id*)
 - Classe `Cliente`
-  - é subclasse de `Pessoa`
-  - possui 1 (um) atributo de instância. Armazena o montante de dinheiro do objeto
+  - `Cliente` é uma `Pessoa`
+  - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente
+  - método `__str__` &#8594; `nome - id - montante em conta`
 - Classe `Produto`
-  - deve conter todas as informações de um produto, que os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
-  - deve também conter pelo menos um método estático, no qual seja possível acessar uma lista de todos os itens instânciados
+  > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quas são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
+  - contém um método estático para acessar uma lista de todos os itens instânciados
+  - contém os seguintes atributos: id, a estratégia de preco adotado, a categoria e o valor do produto
+  - contém uma dicionário privado que armazena todos os itens e que pode ser acessado pelo método estático 
+    - Use o id como chave no dicionário
+  - método `__str__` &#8594; `id - valor - estrategia de preco - categoria`
 - Classe `HardwareConfig`
-  - contém 2 (dois) atributos de classe privado: id de provedor e id de canal
-    - use decorador para inserir e obter o valor do atributo
-    - use valor padrão 1, para os dois casos
+  - contém 2 (dois) atributos de classe protegidos: id de provedor e id de canal
+    - use decorador para inserir e obter o valor dos atributos
+    - use valor padrão 1, para os dois atributos
+  > **sobre esta classe:** um canal seria um computador (valor 1), smartphone (valor 2), etc. Um provedor é o fornecedor de internet (vamos manter esta informação apenas por detalhamento, mas a informação em si não será importante neste trabalho)
+  - método `__str__` &#8594; `id provedor - id canal`
 - Classe `Transacao`
-  - deve conter todas as informações de uma transacao, ou seja, dados como informacoes do cliente, do produto, o hardware que foi utilizado para fazer a transacao, dia e hora da transacao 
-  - contém 1 (um) atributo de classe privado
-    - use decorador para inserir e obter o valor do atributo
-    - armazena todos os id de clientes
+  - deve conter todas as informações de uma transacao, ou seja, dados como informacoes do cliente, do produto, o hardware que foi utilizado para fazer a transacao, dia e hora da transacao
+  - toda transação contém seu próprio id, pra isso use o método `genId()` da classe `Util` para gerar este *id*
+  - contém 1 (uma) lista de classe privada
+    - use decorador para inserir e obter os valores
+    - armazenará todos os id de clientes
+  - contém um método público `getData()` que formata os dados (em formato de lista) para serem inseridos em um *dataframe*
+  - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
-Lembre-se que a classe Transacao deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
+> Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
 
 Uma visão macro é a seguinte:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/parte1.png" width="700">
 
 ### Alguns exemplos de resultado esperado:
-código Produto:
+criando Produtos:
 ```
 pd1 = Produto(13, 2, 'airtime', 152.2)
 pd2 = Produto(8, 2, 'utility_bill', 69.52)
 pd3 = Produto(3, 1, 'utility_bill', 75.68)
 ```
-saída Produto:
+imprimindo cada Produto:
 ```
 id: 3 - Valor: $75.68 - Estrategia de Preco: 1 - Categoria: utility_bill 
 id: 8 - Valor: $69.52 - Estrategia de Preco: 2 - Categoria: utility_bill 
 id: 13 - Valor: $152.2 - Estrategia de Preco: 2 - Categoria: airtime 
 ```
 
-código Transacao:
+criando uma Transação:
 ```
 transacao_1 = Transacao(c1, pd2, hd_config, hora_transacao)
 ```
-saída Transacao:
+imprimindo a Transação:
 ```
 Cliente:
 Nome: Claus - Id: 9882 - Valor em Conta: 100.25
@@ -98,8 +111,10 @@ Hardware:
 1 - 1
 ```
 
-### IMPORTANTE
-Além do código, também deve ser entregue o diagrama de classes.
+Para **criar um dataframe e inserir estes dados** usando Pandas, veja este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py).
+
+> ### IMPORTANTE
+> Além do código, também deve ser entregue o diagrama de classes.
 
 ## Parte 2: Leitura dos dados
 

@@ -148,7 +148,7 @@ df = pd.read_csv(<localizacao_e_nome_do_arquivo>)
 em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo, a pasta em que o arquivo se encontra e o arquivo. Por exemplo `C:/Aluno/data.csv`
 
 
-## Para compreensão dos dados
+### Para compreensão dos dados
 
 As máquinas têm capacidade de processar dados e números, diferentemente dos humanos, que entendem muito melhor as informações visualmente. Por isso, para entender os dados é necessário transformá-los  de linguagem de máquina para a linguagem humana, tornando os dados **mais compreensiveis** e **facilitando o processo de realizar perguntas e hipoteses sobre os dados**.
 

@@ -1,3 +1,5 @@
+📝 *Portuguese version*
+
 # Projeto Final - ECT2540
 
 ## Finalidade do repositório

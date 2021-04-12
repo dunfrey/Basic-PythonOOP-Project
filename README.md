@@ -167,3 +167,5 @@ Você pode verificar alguns comandos de manipulação de dataframe  e gerar os g
 A seguir, um exemplo de gráfico histograma gerado:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="700">
+
+> Reaproveite código!!! Não escreve um mesmo código para métodos e partes de códigos diferentes.

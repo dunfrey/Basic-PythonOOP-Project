@@ -22,6 +22,10 @@ Ao final de cada etapa, iremos poder:
 > - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
 > - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
+**Reaproveite código!!! Não escreva um mesmo bloco de código em diferente métodos**
+
+Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do código.
+
 ## Parte 1: Escrita dos dados
 
 Primeiro, iremos simular um sistema que registra transações financeiras, sem fazer uso de interface gráfica. 
@@ -167,5 +171,3 @@ Você pode verificar alguns comandos de manipulação de dataframe  e gerar os g
 A seguir, um exemplo de gráfico histograma gerado:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="700">
-
-> Reaproveite código!!! Não escreve um mesmo código para métodos e partes de códigos diferentes.

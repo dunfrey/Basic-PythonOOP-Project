@@ -22,7 +22,7 @@ Ao final de cada etapa, iremos poder:
 > - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
 > - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
-**Reaproveite código!!! Não escreva um mesmo bloco de código em diferente métodos**
+**Reaproveite código!!! Não escreva um mesmo bloco de código em diferente partes do artefato**
 
 Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do código.
 

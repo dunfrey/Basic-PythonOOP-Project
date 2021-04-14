@@ -12,13 +12,13 @@ Neste projeto iremos abordar os conhecimentos de Python, POO e um pouco dos mét
 
 ## Origem do trabalho
 
-A plataforma africana [Zindi](https://zindi.africa/) é um ambiente em que profissionais e pesquisadores podem participar de desafios científicos e, em muitos casos, ganhar dinheiro, dependendo dos resultados.
+A plataforma africana [Zindi](https://zindi.africa/) é um ambiente em que profissionais e pesquisadores podem participar de desafios científicos e, em muitos casos, ganhar premiações em dinheiro, dependendo dos resultados.
 
 Em 2019, a empresa Xente, que trabalha com pagamentos online, e-commerce e serviços financeiros em Uganda, propôs um [desafio no Zindi](https://zindi.africa/competitions/xente-fraud-detection-challenge), com finalidade de identificar transações verdadeiras ou fraudulentas usando **Ciência de Dados**.
 
 # Projeto 
 
-Ao final de cada etapa, iremos poder:
+O projeto possui duas etapas, que consiste em:
 > - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
 > - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
@@ -30,30 +30,29 @@ Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do
 
 Primeiro, iremos simular um sistema que registra transações financeiras, sem fazer uso de interface gráfica. 
 
-Como você pode ter imaginado, para isso acontecer, 3 (três) componentes principais devem existir: 
+Para que uma transação ocorra iremos precisar fazer uso de informações de: 
 > 1) Um cliente; 
 > 2) Um produto, e; 
 > 3) Um hardware (computador) pra efetuar a transação.
+> 4) Data e hora
 
 Com posse de informações desses três componentes, podemos "gerar" uma transação.
 
 Portanto, para isso devemos considerar que seu código deve conter, **pelo menos**, as seguintes classes:
 
 - Classe `Util`
-  - contém um método publico que recebe uma lista como parâmetro e retorna um número inteiro aleatório, não contido na lista de entrada.
-- Classe `Relogio` e Classe `Calendario`
-  - irá conter apenas métodos de *set* hora e relógio para cada uma das classes
-- Classe `RelogioCalendario`
-  - é do tipo herança múltipla de `Relogio` e `Calendario`
+  - contém um método publico que vai gerar um número inteiro aleatório
+    - este método precisa receber uma lista como parâmetro para que, na geração do número, este não existe previamente na lista.
+- Classe `Datetime`
   - método `__str__` &#8594; `YYYY/mm/ddTHH:mm:ssZ`
-- Classe `ClienteEntity`
+- Classe `PessoaEntidade`
   - é classe abstrata
   - contém 1 (uma) lista de classe protegida
     - use decorador para *set* e *get*
-    - sua função é de armazenar todos os *ids* dos clientes já registrados
+    - a função da lista deve ser a de armazenar todos os *ids* das pessoas já registradas
   - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
 - Classe `Pessoa`
-  - é subclasse de `ClienteEntity`
+  - é subclasse de `PessoaEntidade`
   - possui 2 (dois) atributos de instância que são por guardar o nome da pessoa e o seu id (use o método `genId()` da classe `Util` para gerar este *id*)
 - Classe `Cliente`
   - `Cliente` é uma `Pessoa`
@@ -78,7 +77,8 @@ Portanto, para isso devemos considerar que seu código deve conter, **pelo menos
   - contém 1 (uma) lista de classe privada
     - use decorador para inserir e obter os valores
     - armazenará todos os id de clientes
-  - contém um método público `getData()` que formata os dados (em formato de lista) para serem inseridos em um *dataframe*
+  - contém um método público `getData()` que formata os dados (gera uma lista)
+    - ex.: `[1,2,1,"produto 2", "2021/03/05T03:46:s57Z"]`
   - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
 > Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 

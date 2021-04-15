@@ -153,8 +153,18 @@ Para criar um *dataframe* vamos utilizar uma framework chamado [**Pandas**](http
 
 Para **criar um dataframe e inserir estes dados** com Pandas podemos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py) como referência, mas é possível encontrar vários outros tutoriais e manuais sobre como usar o Pandas. No arquivo, as linhas 6~23 mostram como podemos criar o dataframe e inserir dados:
 1. obtemos as colunas da tabela (linha 6), que são as informações de uma única transacao
+```
+lista_de_colunas= ['Transacao', 'Usuario', 'Provedor', 'Produto', 'Categoria do Produto', 'Canal', 'Valor Conta Cliente', 'Valor do Servico', 'Data/Hora', 'Estrategia Preco Produto', 'Fraude']
+```
 2. criamos uma nova lista, que irá agrupar todas as transações (linha 19), e inserimos todos os registros na nova lista criada (linha 20)
+```
+pacote_de_transacoes = list()
+pacote_de_transacoes.append(transacao_1.getData())
+```
 3. Executamos o comando para criar um dataframe vazio e inserir a lista de transações como dados do *dataframe* (linha 23)
+```
+df = pd.DataFrame(pacote_de_transacoes, columns = lista_de_colunas) 
+```
 
 > ### IMPORTANTE
 > Para entrega desta primeira etapa, além do código, também deve ser entregue o diagrama de classes.

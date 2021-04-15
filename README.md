@@ -106,7 +106,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
 
 Uma visão macro é a seguinte:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/parte1.png" width="700">
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/projeto_parte1.png" width="700">
 
 ### Alguns exemplos de resultado esperado:
 criando Produtos:

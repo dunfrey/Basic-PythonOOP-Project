@@ -30,30 +30,17 @@ Ao final, teremos uma interface que apresentada todas as transações de compras
 - Transacao: id da transacao realizada
 - Usuario: id do cliente comprador
 - Provedor: id do provedor do serviço financeiro
-  - 1: master
-  - 2: elo
-  - 3: visa
-  - 4: picpay
-  - 5: paypal
-  - 6: alipay
+  - 1: master; 2: elo; 3: visa; 4: picpay; 5: paypal; 6: alipay
 - Produto: id do produto comprado naquela transação
 - ProdutoCategoria: uma representação de qual categoria o produto comprado está classificado
   - algumas categorias são: netflix, globoplay, ticket de museu, ticket de estádio, pagamento de boleto, varejo, etc
 - Canal: id do canal usado para realizar a compra
-  - 1: pessoal
-  - 2: smartphone
-  - 3: computador
-  - 4: tablet
-  - 5: outros
+  - 1: pessoal; 2: smartphone; 3: computador; 4: tablet; 5: outros
 - ValorEmConta: valor que o cliente tem em conta no momento da compra do item
 - ValorServico: valor do produto/serviço comprado
 - DataHora: data e hora realizado pelo cliente
 - EstrategiaPreco: todo produto possui uma estratégia de preço
-  - Se estratégia é 0, nenhum desconto foi dado, 
-  - se 1, então deve ser dado um desconto de 5%, 
-  - se estratégia é 2, 7% de desconto, 
-  - se estratégia é 3, 10% e, 
-  - se valor for 4 o desconto deve ser 13%
+  - 0: nenhum desconto; 1: desconto de 5%; 2: 7% de desconto; 3: 10%, e; 4: o desconto deve ser 13%
 - Fraude: 1 ou 0. Valor 1 representa que a transacao é uma fraude, se 0, é uma operação válida
 
 ## Parte 1: Escrita dos dados

@@ -127,17 +127,17 @@ Hardware:
 
 ### Pandas
 
-Usaremos o métdo `getData()` (que vai retornar todos as transações e suas informações) como formatador de dados que usaremos para criar um *dataframe*. Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem significado, ou seja, têm nomes, e cada coluna pode ser um tipo de dado diferente. Em outras palavras, um *dataframe* pode ser visto como uma tabela de uma base de dados, em que cada linha corresponde a um registo (linha) da tabela.
+Usaremos o método `getData()` (que vai retornar todos as transações e suas informações) da classe `Transacao` como método formatador dos dados, pois usaremos estas listas para criar um *dataframe*. Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem significado, ou seja, têm nomes, e cada coluna pode ser um tipo de dado diferente. Em outras palavras, um *dataframe* pode ser visto como uma tabela de uma base de dados, em que cada linha corresponde a um registo (linha) da tabela.
 
-Para criar um *dataframe* vamos adotar uma ferramenta chamada **Pandas**. De acordo com [wikipedia](https://pt.wikipedia.org/wiki/Pandas_(software)), Pandas "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com esta ferramenta, poderemos fazer uso de estruturas e operações para manipular tabelas numéricas e séries temporais.
+Para criar um *dataframe* vamos adotar uma ferramenta chamada [**Pandas**](https://pt.wikipedia.org/wiki/Pandas_(software)), que "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com a ferramenta, conseguiremos usar estruturas e operações para manipular tabelas numéricas e séries temporais.
 
-Para **criar um dataframe e inserir estes dados** usando Pandas, vamos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py). Neste arquivo, das linhas 6~23 mostra como podemos fazer isso:
-1. dado uma lista (linha 6), com informações de uma transacao
-2. vamos criar uma lista de transações (linha 19) e inserir todas as transacoes dentro (linha 20)
-3. Após isso, vamos criar um dataframe vazio e inserir esses dados no dataframe (linha 23)
+Para **criar um dataframe e inserir estes dados** usando Pandas, podemos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py) como referência, mas é possível encontrar vários outros tutoriais e manuais sobre como usar o Pandas. No arquivo, as linhas 6~23 mostram como podemos criar o dataframe e inserir dados:
+1. obtemos uma lista (linha 6), que contém informações de uma única transacao
+2. criamos uma nova lista, que irá aggrupar todas as transações (linha 19), e inserimos todos os registros na nova lista criada (linha 20)
+3. Executamos o comando para criar um dataframe vazio e inserir a lista de transações como dados do *dataframe* (linha 23)
 
 > ### IMPORTANTE
-> APara entrega desta etapa, além do código, também deve ser entregue o diagrama de classes.
+> Para entrega desta primeira etapa, além do código, também deve ser entregue o diagrama de classes.
 
 ## Parte 2: Leitura dos dados
 

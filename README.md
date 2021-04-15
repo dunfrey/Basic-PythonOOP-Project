@@ -22,38 +22,48 @@ O projeto possui duas etapas, que consiste em:
 > - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
 > - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
-**Reaproveite código!!! Não escreva um mesmo bloco de código em diferente partes do artefato**
+Ao final, teremos uma interface que apresentada todas as transações de compras registradas, resumidas em uma tabela, similar a figura abaixo:
 
-Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do código.
+<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig1.png" width="700">
+
+**Cada transação, ou seja, cada linha da tabela**, contém as seguintes informações:
+- Transacao: id da transacao realizada
+- Usuario: id do cliente comprador
+- Provedor: id do provedor, ou seja, pode ser master, elo, visa, picpay, paypal, alipay, etc
+  - Neste projeto, iremos ocultar a informação que associa um número a um determnado provedor, ou seja, usaremos apenas números
+- Produto: id do produto comprado naquela transação
+- ProdutoCategoria: uma representação de qual categoria o produto comprado está classificado
+  - algumas categorias são: netflix, globoplay, ticket de museu, ticket de estádio, pagamento de boleto, varejo, etc
+- Canal: id do provedor, ou seja, pode ser um computador, ou um smartphone, ou um tablet, etc
+  - Neste projeto, iremos ocultar a informação sobre qual número representa qual canal, ou seja, usaremos apenas números
+- ValorEmConta: valor que o cliente tem em conta no momento da compra do item
+- ValorServico: valor do produto/serviço comprado
+- DataHora: data e hora realizado pelo cliente
+- EstrategiaPreco: todo produto possui uma estratégia de preço
+  - Por exemplo, se estratégia é a n⁰ 1 então deve ser dado um desconto de 10%, se estratégia é 2, 15% de desconto
+- Fraude: 1 ou 0. Valor 1 representa que a transacao é uma fraude, se 0, é uma operação válida
 
 ## Parte 1: Escrita dos dados
 
-Primeiro, iremos simular um sistema que registra transações financeiras, sem fazer uso de interface gráfica. 
+Primeiro, iremos simular um sistema que registra transações financeiras sem fazer uso de interface gráfica. 
 
-Para que uma transação ocorra iremos precisar de informações de: 
+Como observamos, uma transação precisa de informações de: 
 > 1) Um cliente; 
-> 2) Um produto, e; 
-> 3) Um hardware (computador) pra efetuar a transação.
-> 4) Data e hora
+> 2) Um produto; 
+> 3) Um hardware (computador) pra efetuar a transação, e;
+> 4) Informações da transação como data e hora.
 
-Com posse de informações desses três componentes, podemos "gerar" uma transação.
-
-Portanto, para isso devemos considerar que seu código deve conter, **pelo menos**, as seguintes classes:
+Com posse desses requisitos, devemos considerar que seu código deve conter, **pelo menos**, as seguintes classes:
 
 - Classe `Util`
   - contém um método publico que vai gerar um número inteiro aleatório
     - este método precisa receber uma lista como parâmetro para que, na geração do número, verifique se o número já não existe previamente na lista.
-- Classe `Datetime`
-  - método `__str__` &#8594; `YYYY/mm/ddTHH:mm:ssZ`
-- Classe `PessoaEntidade`
+- Classe `Pessoa`
   - é classe abstrata
   - contém 1 (uma) lista de classe protegida
     - use decorador para *set* e *get*
     - a função da lista deve ser a de armazenar todos os *ids* das pessoas já registradas
   - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
-- Classe `Pessoa`
-  - é subclasse de `PessoaEntidade`
-  - possui 2 (dois) atributos de instância que são por guardar o nome da pessoa e o seu id (use o método `genId()` da classe `Util` para gerar este *id*)
 - Classe `Cliente`
   - `Cliente` é uma `Pessoa`
   - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente
@@ -65,7 +75,7 @@ Portanto, para isso devemos considerar que seu código deve conter, **pelo menos
   - contém uma dicionário privado que armazena todos os itens e que pode ser acessado pelo método estático 
     - Use o id como chave no dicionário
   - método `__str__` &#8594; `id - valor - estrategia de preco - categoria`
-- Classe `HardwareConfig`
+- Classe `SistemaProvedorCanal`
   - contém 2 (dois) atributos de classe protegidos: id de provedor e id de canal
     - use decorador para inserir e obter o valor dos atributos
     - use valor padrão 1, para os dois atributos
@@ -80,15 +90,16 @@ Portanto, para isso devemos considerar que seu código deve conter, **pelo menos
   - contém um método público `getData()` que formata todos dados em uma única lista
     - ex.: `lista = [id_transacao, 
             cliente.id_pessoa,
-            hardware_config.id_provedor,
+            sistema_pc.id_provedor,
             produto.id_produto,
             produto.categ_produto,
-            hardware_config.id_canal,
+            sistema_pc.id_canal,
             cliente.valor_conta_cliente,
             produto.valor_produto,
-            data_hora_transacao,
+            data/hora_transacao (`YYYY/mm/ddTHH:mm:ssZ`),
             produto.estrategia_preco_produto,
             fraude (1 ou 0)]`
+  - use `Datetime` com formatação &#8594; `YYYY/mm/ddTHH:mm:ssZ`
   - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
 > Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
@@ -100,40 +111,49 @@ Uma visão macro é a seguinte:
 ### Alguns exemplos de resultado esperado:
 criando Produtos:
 ```
-pd1 = Produto(13, 2, 'airtime', 152.2)
-pd2 = Produto(8, 2, 'utility_bill', 69.52)
-pd3 = Produto(3, 1, 'utility_bill', 75.68)
+pd1 = Produto(13, 2, 'Ticket - Museu', 152.2)
+pd2 = Produto(8, 2, 'Netflix', 69.52)
+pd3 = Produto(3, 1, 'Netflix', 75.68)
+pd4 = Produto(456, 2, 'GloboPlay', 789.25)
+pd5 = Produto(48, 1, 'GloboPlay', 853.99)
 ```
 imprimindo cada Produto:
 ```
-id: 3 - Valor: $75.68 - Estrategia de Preco: 1 - Categoria: utility_bill 
-id: 8 - Valor: $69.52 - Estrategia de Preco: 2 - Categoria: utility_bill 
-id: 13 - Valor: $152.2 - Estrategia de Preco: 2 - Categoria: airtime 
+id Produto: 3 - Valor: $75.68 - Estrategia de Preco: 1 - Categoria: Netflix 
+id Produto: 8 - Valor: $69.52 - Estrategia de Preco: 2 - Categoria: Netflix 
+id Produto: 13 - Valor: $152.2 - Estrategia de Preco: 2 - Categoria: Ticket - Museu 
+id Produto: 48 - Valor: $853.99 - Estrategia de Preco: 1 - Categoria: GloboPlay 
+id Produto: 456 - Valor: $789.25 - Estrategia de Preco: 2 - Categoria: GloboPlay
 ```
 
 criando uma Transação:
 ```
-transacao_1 = Transacao(c1, pd2, hd_config, hora_transacao)
+transacao_1 = Transacao(c1, pd2, sistema_pc, hora_transacao)
 ```
 imprimindo a Transação:
 ```
 Cliente:
-Nome: Claus - Id: 9882 - Valor em Conta: 100.25
+Id: 9581 - Nome: Claus - Valor em Conta: 100.25
+
 Produto:
-id: 8 - Valor: $69.52 - Estrategia de Preco:: 2 - Categoria: utility_bill
+id: 8 - Valor: $69.52 - Estrategia de Preco: 2 - Categoria: Netflix
+
 Hardware:
-1 - 1
+Provedor: 2 - canal: 3
 ```
+Ao final, usaremos o método `getData()` (que vai retornar todos as transações e suas informações) da classe `Transacao` como método formatador dos dados.
 
-### Pandas
+Estas listas serão utilizadas para criar um tabela, similar a uma tabela excel, chamada *dataframe*.
 
-Usaremos o método `getData()` (que vai retornar todos as transações e suas informações) da classe `Transacao` como método formatador dos dados, pois usaremos estas listas para criar um *dataframe*. Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem significado, ou seja, têm nomes, e cada coluna pode ser um tipo de dado diferente. Em outras palavras, um *dataframe* pode ser visto como uma tabela de uma base de dados, em que cada linha corresponde a um registo (linha) da tabela.
+### Dataframe e Pandas
 
-Para criar um *dataframe* vamos adotar uma ferramenta chamada [**Pandas**](https://pt.wikipedia.org/wiki/Pandas_(software)), que "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com a ferramenta, conseguiremos usar estruturas e operações para manipular tabelas numéricas e séries temporais.
+Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem significado, ou seja, têm nomes, e cada coluna pode ser um tipo de dado diferente. Em outras palavras, um *dataframe* pode ser visto como uma tabela de uma base de dados, em que cada linha corresponde a um registo (linha) da tabela.
 
-Para **criar um dataframe e inserir estes dados** usando Pandas, podemos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py) como referência, mas é possível encontrar vários outros tutoriais e manuais sobre como usar o Pandas. No arquivo, as linhas 6~23 mostram como podemos criar o dataframe e inserir dados:
-1. obtemos uma lista (linha 6), que contém informações de uma única transacao
-2. criamos uma nova lista, que irá aggrupar todas as transações (linha 19), e inserimos todos os registros na nova lista criada (linha 20)
+Para criar um *dataframe* vamos utilizar uma framework chamado [**Pandas**](https://pt.wikipedia.org/wiki/Pandas_(software)), que "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com a ferramenta, conseguiremos usar estruturas e operações para manipular tabelas numéricas e séries temporais.
+
+Para **criar um dataframe e inserir estes dados** com Pandas podemos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py) como referência, mas é possível encontrar vários outros tutoriais e manuais sobre como usar o Pandas. No arquivo, as linhas 6~23 mostram como podemos criar o dataframe e inserir dados:
+1. obtemos as colunas da tabela (linha 6), que são as informações de uma única transacao
+2. criamos uma nova lista, que irá agrupar todas as transações (linha 19), e inserimos todos os registros na nova lista criada (linha 20)
 3. Executamos o comando para criar um dataframe vazio e inserir a lista de transações como dados do *dataframe* (linha 23)
 
 > ### IMPORTANTE
@@ -190,3 +210,10 @@ Você pode verificar alguns comandos de manipulação de dataframe  e gerar os g
 A seguir, um exemplo de gráfico histograma gerado:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="700">
+
+
+
+
+**Reaproveite código!!! Não escreva um mesmo bloco de código em diferente partes do artefato**
+
+Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do código.

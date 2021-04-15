@@ -222,7 +222,9 @@ A seguir, um exemplo de gráfico histograma gerado:
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig2.png" width="700">
 
 
+## Pontuação extra
 
+Pense que o usuário que vai utilizar o seu programa pode realizar ações que não são permitidas ou pode quebrar seu programa. Então pense como implementar o uso de **excessões**.
 
 **Reaproveite código!!! Não escreva um mesmo bloco de código em diferente partes do artefato**
 

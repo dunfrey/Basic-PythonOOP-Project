@@ -29,13 +29,22 @@ Ao final, teremos uma interface que apresentada todas as transações de compras
 **Cada transação, ou seja, cada linha da tabela**, contém as seguintes informações:
 - Transacao: id da transacao realizada
 - Usuario: id do cliente comprador
-- Provedor: id do provedor, ou seja, pode ser master, elo, visa, picpay, paypal, alipay, etc
-  - Neste projeto, iremos ocultar a informação que associa um número a um determnado provedor, ou seja, usaremos apenas números
+- Provedor: id do provedor do serviço financeiro
+  - 1: master
+  - 2: elo
+  - 3: visa
+  - 4: picpay
+  - 5: paypal
+  - 6: alipay
 - Produto: id do produto comprado naquela transação
 - ProdutoCategoria: uma representação de qual categoria o produto comprado está classificado
   - algumas categorias são: netflix, globoplay, ticket de museu, ticket de estádio, pagamento de boleto, varejo, etc
-- Canal: id do provedor, ou seja, pode ser um computador, ou um smartphone, ou um tablet, etc
-  - Neste projeto, iremos ocultar a informação sobre qual número representa qual canal, ou seja, usaremos apenas números
+- Canal: id do canal usado para realizar a compra
+  - 1: pessoal
+  - 2: smartphone
+  - 3: computador
+  - 4: tablet
+  - 5: outros
 - ValorEmConta: valor que o cliente tem em conta no momento da compra do item
 - ValorServico: valor do produto/serviço comprado
 - DataHora: data e hora realizado pelo cliente

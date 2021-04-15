@@ -30,7 +30,7 @@ Essa abordagem mantém o tamanho reduzido e facilita a leitura e manutenção do
 
 Primeiro, iremos simular um sistema que registra transações financeiras, sem fazer uso de interface gráfica. 
 
-Para que uma transação ocorra iremos precisar fazer uso de informações de: 
+Para que uma transação ocorra iremos precisar de informações de: 
 > 1) Um cliente; 
 > 2) Um produto, e; 
 > 3) Um hardware (computador) pra efetuar a transação.
@@ -42,7 +42,7 @@ Portanto, para isso devemos considerar que seu código deve conter, **pelo menos
 
 - Classe `Util`
   - contém um método publico que vai gerar um número inteiro aleatório
-    - este método precisa receber uma lista como parâmetro para que, na geração do número, este não existe previamente na lista.
+    - este método precisa receber uma lista como parâmetro para que, na geração do número, verifique se o número já não existe previamente na lista.
 - Classe `Datetime`
   - método `__str__` &#8594; `YYYY/mm/ddTHH:mm:ssZ`
 - Classe `PessoaEntidade`
@@ -77,8 +77,18 @@ Portanto, para isso devemos considerar que seu código deve conter, **pelo menos
   - contém 1 (uma) lista de classe privada
     - use decorador para inserir e obter os valores
     - armazenará todos os id de clientes
-  - contém um método público `getData()` que formata os dados (gera uma lista)
-    - ex.: `[1,2,1,"produto 2", "2021/03/05T03:46:s57Z"]`
+  - contém um método público `getData()` que formata todos dados em uma única lista
+    - ex.: `lista = [id_transacao, 
+            cliente.id_pessoa,
+            hardware_config.id_provedor,
+            produto.id_produto,
+            produto.categ_produto,
+            hardware_config.id_canal,
+            cliente.valor_conta_cliente,
+            produto.valor_produto,
+            data_hora_transacao,
+            produto.estrategia_preco_produto,
+            fraude (1 ou 0)]`
   - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
 > Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
@@ -115,10 +125,19 @@ Hardware:
 1 - 1
 ```
 
-Para **criar um dataframe e inserir estes dados** usando Pandas, veja este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py).
+### Pandas
+
+Usaremos o métdo `getData()` (que vai retornar todos as transações e suas informações) como formatador de dados que usaremos para criar um *dataframe*. Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem significado, ou seja, têm nomes, e cada coluna pode ser um tipo de dado diferente. Em outras palavras, um *dataframe* pode ser visto como uma tabela de uma base de dados, em que cada linha corresponde a um registo (linha) da tabela.
+
+Para criar um *dataframe* vamos adotar uma ferramenta chamada **Pandas**. De acordo com [wikipedia](https://pt.wikipedia.org/wiki/Pandas_(software)), Pandas "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com esta ferramenta, poderemos fazer uso de estruturas e operações para manipular tabelas numéricas e séries temporais.
+
+Para **criar um dataframe e inserir estes dados** usando Pandas, vamos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py). Neste arquivo, das linhas 6~23 mostra como podemos fazer isso:
+1. dado uma lista (linha 6), com informações de uma transacao
+2. vamos criar uma lista de transações (linha 19) e inserir todas as transacoes dentro (linha 20)
+3. Após isso, vamos criar um dataframe vazio e inserir esses dados no dataframe (linha 23)
 
 > ### IMPORTANTE
-> Além do código, também deve ser entregue o diagrama de classes.
+> APara entrega desta etapa, além do código, também deve ser entregue o diagrama de classes.
 
 ## Parte 2: Leitura dos dados
 
@@ -156,7 +175,7 @@ em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo,
 
 As máquinas têm capacidade de processar dados e números, diferentemente dos humanos, que entendem muito melhor as informações visualmente. Por isso, para entender os dados é necessário transformá-los  de linguagem de máquina para a linguagem humana, tornando os dados **mais compreensiveis** e **facilitando o processo de realizar perguntas e hipoteses sobre os dados**.
 
-Geralmente, a distribuição desses dados em uma tabela é muito dificil de observar a olho humano. Muitas linhas e colunas.
+Geralmente, a distribuição desses dados em uma tabela é muito dificil de observar a olho humano, porque são muitos dados, distribuídos em  linhas e muitas colunas.
 
 Para melhor compreensão os dados, 4 (quatro) gráficos podem ser utilizados:
 - [**Gráfico de dipersão**](https://pt.wikipedia.org/wiki/Gr%C3%A1fico_de_dispers%C3%A3o): verifica se existe correlação. Coloca um ponto em plano cartesiano usando duas variáves;

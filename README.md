@@ -68,7 +68,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
 - Classe `Cliente`
   - `Cliente` é uma `Pessoa`
   - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente
-  - método `__str__` &#8594; `nome - id - montante em conta`
+  - método `__str__` &#8594; `id - nome - montante em conta`
 - Classe `Produto`
   > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quas são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
   - contém um método estático para acessar uma lista de todos os itens instânciados

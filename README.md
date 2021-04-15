@@ -8,7 +8,7 @@ Esta repositório dispõe de um projeto para abordar os conhecimentos obtidos no
 
 ## Conteúdo abordado
 
-Neste projeto iremos abordar os conhecimentos de Python, POO e um pouco dos métodos de ciência de dados para compreender os dados, ou seja, vamos fazer algumas explotações dos dados que, caso queira, permitirá fazer análises dos dados.
+Neste projeto iremos abordar os conhecimentos de Python, POO e um pouco dos métodos de ciência de dados para compreender os dados, ou seja, vamos fazer algumas explotações (gerar figuras e levantamentos de informações) que, caso queira, permitirá fazer análises mais profunda dos dados.
 
 ## Origem do trabalho
 

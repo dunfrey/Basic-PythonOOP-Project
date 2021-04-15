@@ -64,6 +64,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
     - use decorador para *set* e *get*
     - a função da lista deve ser a de armazenar todos os *ids* das pessoas já registradas
   - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
+  - método `__str__` abstrata
 - Classe `Cliente`
   - `Cliente` é uma `Pessoa`
   - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente

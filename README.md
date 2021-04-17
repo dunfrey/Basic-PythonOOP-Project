@@ -1,10 +1,10 @@
-> 📝 *Portuguese version*
+	> 📝 *Portuguese version*
 
 # Projeto Final - ECT2540
 
 ## Finalidade do repositório
 
-Esta repositório dispõe de um projeto para abordar os conhecimentos obtidos no curso de **Programação Orientada à Objeto em Python** (UFRN/ECT2540).
+Este repositório dispõe de um projeto para abordar os conhecimentos obtidos no curso de **Programação Orientada a Objeto em Python** (UFRN/ECT2540).
 
 ## Conteúdo abordado
 
@@ -16,18 +16,21 @@ A plataforma africana [Zindi](https://zindi.africa/) é um ambiente em que profi
 
 Em 2019, a empresa Xente, que trabalha com pagamentos online, e-commerce e serviços financeiros em Uganda, propôs um [desafio no Zindi](https://zindi.africa/competitions/xente-fraud-detection-challenge), com finalidade de identificar transações verdadeiras ou fraudulentas usando **Ciência de Dados**.
 
+O projeto utiliza uma base de dados da plataforma Zindi, com algumas modificações
+nos dados.
+
 # Projeto 
 
 O projeto possui duas etapas, que consiste em:
-> - Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
-> - Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
+> 1. Simular o cadastro de transações, abordando os pilares de POO apresentados no curso;
+> 2. Fazer uso de interface gráfica para leitura, projeção e inserção de novos dados.
 
-Ao final, teremos uma interface que apresentada todas as transações de compras registradas, resumidas em uma tabela, similar a figura abaixo:
+Ao final, teremos uma interface que apresenta todas as transações de compras registradas, resumidas em uma tabela, similar à figura abaixo:
 
 <img src="https://github.com/dunfrey/OOP_ProjectClass/blob/main/fig1.png" width="700">
 
 **Cada transação, ou seja, cada linha da tabela**, contém as seguintes informações:
-- Transacao: id da transacao realizada
+- Transacao: id da transacao realizada. Um id é um nr. inteiro utilizado como identificador
 - Usuario: id do cliente comprador
 - Provedor: id do provedor do serviço financeiro
   - 1: master; 2: elo; 3: visa; 4: picpay; 5: paypal; 6: alipay
@@ -43,7 +46,7 @@ Ao final, teremos uma interface que apresentada todas as transações de compras
   - 0: nenhum desconto; 1: desconto de 5%; 2: 7% de desconto; 3: 10%, e; 4: o desconto deve ser 13%
 - Fraude: 1 ou 0. Valor 1 representa que a transacao é uma fraude, se 0, é uma operação válida
 
-## Parte 1: Escrita dos dados
+## Parte 1: Modelagem dos dados
 
 Primeiro, iremos simular um sistema que registra transações financeiras sem fazer uso de interface gráfica. 
 
@@ -60,35 +63,35 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
     - este método precisa receber uma lista como parâmetro para que, na geração do número, verifique se o número já não existe previamente na lista.
 - Classe `Pessoa`
   - é classe abstrata
-  - contém 1 (uma) lista de classe protegida
+  - contém 1 (uma) lista protegida como atributo de classe
     - use decorador para *set* e *get*
-    - a função da lista deve ser a de armazenar todos os *ids* das pessoas já registradas
+    - a lista deve armazenar todos os *ids* das pessoas já registradas
   - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
-  - método `__str__` abstrata
+  - método `__str__` abstrato
 - Classe `Cliente`
   - `Cliente` é uma `Pessoa`
   - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente
   - método `__str__` &#8594; `id - nome - montante em conta`
 - Classe `Produto`
-  > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quas são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
-  - contém um método estático para acessar uma lista de todos os itens instânciados
+  > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quais são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/main/data.csv)
+  - contém um método estático para acessar uma lista de todos os itens instanciados
   - contém os seguintes atributos: id, a estratégia de preco adotado, a categoria e o valor do produto
   - contém uma dicionário privado que armazena todos os itens e que pode ser acessado pelo método estático 
     - Use o id como chave no dicionário
   - método `__str__` &#8594; `id - valor - estrategia de preco - categoria`
 - Classe `SistemaProvedorCanal`
+  > **sobre esta classe:** um canal seria um computador (valor 1), smartphone (valor 2), etc. Um provedor é o fornecedor de internet (vamos manter esta informação apenas por detalhamento, mas a informação em si não será importante neste trabalho)
   - contém 2 (dois) atributos de classe protegidos: id de provedor e id de canal
     - use decorador para inserir e obter o valor dos atributos
     - use valor padrão 1, para os dois atributos
-  > **sobre esta classe:** um canal seria um computador (valor 1), smartphone (valor 2), etc. Um provedor é o fornecedor de internet (vamos manter esta informação apenas por detalhamento, mas a informação em si não será importante neste trabalho)
   - método `__str__` &#8594; `id provedor - id canal`
 - Classe `Transacao`
-  - deve conter todas as informações de uma transacao, ou seja, dados como informacoes do cliente, do produto, o hardware que foi utilizado para fazer a transacao, dia e hora da transacao
-  - toda transação contém seu próprio id, pra isso use o método `genId()` da classe `Util` para gerar este *id*
+  - deve conter todas as informações de uma transacao, ou seja, dados como informações do cliente, do produto, o hardware que foi utilizado para fazer a transação, dia e hora da transação
+  - toda transação contém seu próprio id. Portanto, para gerar este id use o método `genId()` da classe `Util`
   - contém 1 (uma) lista de classe privada
     - use decorador para inserir e obter os valores
-    - armazenará todos os id de clientes
-  - contém um método público `getData()` que formata todos dados em uma única lista
+    - armazenará todos os id de clientes instanciados
+  - contém um método público `getData()` que formata os dados de uma transação em uma lista
     - ex.: `lista = [id_transacao, 
             cliente.id_pessoa,
             sistema_pc.id_provedor,
@@ -103,7 +106,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
   - use `Datetime` com formatação &#8594; `YYYY/mm/ddTHH:mm:ssZ`
   - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
-> Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por intâncias" de outras classes. 
+> Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por instâncias" de outras classes. 
 
 Uma visão macro é a seguinte:
 
@@ -129,7 +132,7 @@ id Produto: 456 - Valor: $789.25 - Estrategia de Preco: 2 - Categoria: GloboPlay
 
 criando uma Transação:
 ```
-transacao_1 = Transacao(c1, pd2, sistema_pc, hora_transacao)
+transacao_1 = Transacao(c1, pd2, sistema_pc, hora_transacao) # cliente, produto, provedorcanal e datetime
 ```
 imprimindo a Transação:
 ```
@@ -153,7 +156,7 @@ Um *dataframe* é semelhante a uma matriz, contudo as suas colunas possuem signi
 Para criar um *dataframe* vamos utilizar uma framework chamado [**Pandas**](https://pt.wikipedia.org/wiki/Pandas_(software)), que "é uma biblioteca de software criada para a linguagem Python para manipulação e análise de dados". Com a ferramenta, conseguiremos usar estruturas e operações para manipular tabelas numéricas e séries temporais.
 
 Para **criar um dataframe e inserir estes dados** com Pandas podemos usar este [arquivo](https://github.com/dunfrey/Project_OOPClass/blob/main/comandos_pandas.py) como referência, mas é possível encontrar vários outros tutoriais e manuais sobre como usar o Pandas. No arquivo, as linhas 6~23 mostram como podemos criar o dataframe e inserir dados:
-1. obtemos as colunas da tabela (linha 6), que são as informações de uma única transacao
+1. inserimos as legendas das colunas da tabela (linha 6), que são as informações de uma transação
 ```
 lista_de_colunas= ['Transacao', 'Usuario', 'Provedor', 'Produto', 'Categoria do Produto', 'Canal', 'Valor Conta Cliente', 'Valor do Servico', 'Data/Hora', 'Estrategia Preco Produto', 'Fraude']
 ```
@@ -175,7 +178,7 @@ df = pd.DataFrame(pacote_de_transacoes, columns = lista_de_colunas)
 Concluída a primeira etapa do projeto, vamos a parte visual do trabalho.
 
 Devemos ter um sistema feito em Tkinter que nos possibilite:
-- ler um tabela excel ou arquivo .csv e nos mostre em tela;
+- ler um tabela excel ou arquivo .csv e visualizá-la em tela;
 - adicionar novos itens a essa tabela;
 - gerar gráficos sobre os dados.
 
@@ -194,7 +197,7 @@ O arquivo encontra-se em: https://github.com/dunfrey/OOP_ProjectClass/blob/main/
 
 A leitura do arquivo será utilizando a biblioteca [Pandas](https://pandas.pydata.org/getting_started.html). Use o seguinte comando para ler `data.csv`:
 ```
-# fazendo importe da biblioteca pandas na linguagem Python
+# importando biblioteca pandas na linguagem Python
 import pandas
 
 df = pd.read_csv(<localizacao_e_nome_do_arquivo>)
@@ -204,7 +207,7 @@ em que `localizacao_e_nome_do_arquivo` é, como o próprio nome está sugerindo,
 
 ### Para compreensão dos dados
 
-As máquinas têm capacidade de processar dados e números, diferentemente dos humanos, que entendem muito melhor as informações visualmente. Por isso, para entender os dados é necessário transformá-los  de linguagem de máquina para a linguagem humana, tornando os dados **mais compreensiveis** e **facilitando o processo de realizar perguntas e hipoteses sobre os dados**.
+As máquinas têm capacidade de processar dados e números, diferentemente dos humanos, que entendem muito melhor as informações visualmente. Por isso, para entender os dados é necessário transformá-los  de linguagem de máquina para a linguagem humana, tornando os dados **mais compreensiveis** e **facilitando o processo de realizar perguntas e hipóteses sobre os dados**.
 
 Geralmente, a distribuição desses dados em uma tabela é muito dificil de observar a olho humano, porque são muitos dados, distribuídos em  linhas e muitas colunas.
 

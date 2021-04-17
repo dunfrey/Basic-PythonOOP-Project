@@ -2,6 +2,13 @@
 
 # Projeto Final - ECT2540
 
+> Pessoas envolvidas no projeto
+
+| Cargo                 | Responsibilidade         | Nome                | Repo.: GitHub      |
+| -----                | ----------------       | -----------              | ---------    |
+| Estagiário       | Autor           | Dunfrey P. Aragão | [/dunfrey](www.github.com/dunfrey)  |
+| Professor Discíplina       | Orientador                 | Bruno Silva | [/brnmfs](www.github.com/brnmfs)  |
+
 ## Finalidade do repositório
 
 Este repositório dispõe de um projeto para abordar os conhecimentos obtidos no curso de **Programação Orientada a Objeto em Python** (UFRN/ECT2540).

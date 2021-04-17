@@ -4,7 +4,7 @@
 
 > Pessoas envolvidas no projeto
 
-| Cargo                 | Responsibilidade         | Nome                | Repo.: GitHub      |
+| Cargo                 | Responsibilidade         | Nome                | GitHub Profile     |
 | -----                | ----------------       | -----------              | ---------    |
 | Estagiário Docente      | Autor           | Dunfrey P. Aragão | [/dunfrey](www.github.com/dunfrey)  |
 | Professor da Discíplina       | Orientador                 | Bruno Silva | [/brnmfs](www.github.com/brnmfs)  |

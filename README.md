@@ -70,9 +70,12 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
     - este método precisa receber uma lista como parâmetro para que, na geração do número, verifique se o número já não existe previamente na lista.
 - Classe `Pessoa`
   - é classe abstrata
+  - possui um atributo de instância chamada `nome`
   - contém 1 (uma) lista protegida como atributo de classe
-    - use decorador para *set* e *get*
     - a lista deve armazenar todos os *ids* das pessoas já registradas
+    - use decorador para *set* e *get*
+    	- set: vai ser um `lista.append()`
+    	- get: retornar toda a lista
   - contém 1 (um) atributo de instância que pode ser acessado, que armazena o id do objeto instanciado (use o método `genId()` da classe `Util` para gerar este *id*)
   - método `__str__` abstrato
 - Classe `Cliente`
@@ -97,6 +100,8 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
   - toda transação contém seu próprio id. Portanto, para gerar este id use o método `genId()` da classe `Util`
   - contém 1 (uma) lista de classe privada
     - use decorador para inserir e obter os valores
+        - set: vai ser um `lista.append()`
+    	- get: retornar toda a lista
     - armazenará todos os id de clientes instanciados
   - contém um método público `getData()` que formata os dados de uma transação em uma lista
     - ex.: `lista = [id_transacao, 

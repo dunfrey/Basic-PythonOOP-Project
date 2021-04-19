@@ -102,7 +102,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
     - use decorador para inserir e obter os valores
         - set: vai ser um `lista.append()`
     	- get: retornar toda a lista
-    - armazenará todos os id de clientes instanciados
+    - armazenará todos os id de transações instanciadas
   - contém um método público `getData()` que formata os dados de uma transação em uma lista
     - ex.: `lista = [id_transacao, 
             cliente.id_pessoa,

@@ -34,7 +34,7 @@ O projeto possui duas etapas, que consiste em:
 
 Ao final, teremos uma interface que apresenta todas as transações de compras registradas, resumidas em uma tabela, similar à figura abaixo:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/figures/fig1.png" width="700">
+<img src="https://github.com/dunfrey/Project_OOPClass/blob/main/figures/fig1.png" width="700">
 
 **Cada transação, ou seja, cada linha da tabela**, contém as seguintes informações:
 - Transacao: id da transacao realizada. Um id é um nr. inteiro utilizado como identificador
@@ -83,7 +83,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
   - possui 1 (um) atributo de instância que armazena o montante de dinheiro do cliente
   - método `__str__` &#8594; `id - nome - montante em conta`
 - Classe `Produto`
-  > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quais são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/OOP_ProjectClass/blob/dataset/data.csv)
+  > **sobre esta classe:** deve conter todas as informações de um produto. Para entender quais são, use os cabeçalhos de cada coluna do arquivo [data.csv](https://github.com/dunfrey/Project_OOPClass/blob/main/dataset/data.csv)
   - contém um método estático para acessar uma lista de todos os itens instanciados
   - contém os seguintes atributos: id, a estratégia de preco adotado, a categoria e o valor do produto
   - contém uma dicionário privado que armazena todos os itens e que pode ser acessado pelo método estático 
@@ -122,7 +122,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
 
 Uma visão macro é a seguinte:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/figures/projeto_parte1.png" width="700">
+<img src="https://github.com/dunfrey/Project_OOPClass/blob/main/figures/projeto_parte1.png" width="700">
 
 ### Alguns exemplos de resultado esperado:
 criando Produtos:
@@ -197,7 +197,7 @@ Devemos ter um sistema feito em Tkinter que nos possibilite:
 
 A seguir, um exemplo de como iremos visualizar:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/figures/fig1.png" width="700">
+<img src="https://github.com/dunfrey/Project_OOPClass/blob/main/figures/fig1.png" width="700">
 
 Uma sugestão de GUI para criação suas janelas gráficas é [Pygubu](https://github.com/alejandroautalan/pygubu-designer):
 - funciona tanto em sistemas Linux, quanto Windows (eu utilizei este para criar esta versão *demo*);
@@ -235,7 +235,7 @@ Você pode verificar alguns comandos de manipulação de dataframe  e gerar os g
 
 A seguir, um exemplo de gráfico histograma gerado:
 
-<img src="https://github.com/dunfrey/OOP_ProjectClass/blob/figures/fig2.png" width="700">
+<img src="https://github.com/dunfrey/Project_OOPClass/blob/main/figures/fig2.png" width="700">
 
 
 ## Pontuação extra

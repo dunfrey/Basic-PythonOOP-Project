@@ -11,7 +11,7 @@
 
 ## Finalidade do repositório
 
-Este repositório dispõe de um projeto para abordar os conhecimentos obtidos no curso de **Programação Orientada a Objeto em Python** (UFRN/ECT2540).
+Este documento apresenta a especificação do projeto final para a disciplina de **Programação Orientada a Objeto em Python** (UFRN/ECT2540) da ECT/UFRN.
 
 ## Conteúdo abordado
 
@@ -23,8 +23,7 @@ A plataforma africana [Zindi](https://zindi.africa/) é um ambiente em que profi
 
 Em 2019, a empresa Xente, que trabalha com pagamentos online, e-commerce e serviços financeiros em Uganda, propôs um [desafio no Zindi](https://zindi.africa/competitions/xente-fraud-detection-challenge), com finalidade de identificar transações verdadeiras ou fraudulentas usando **Ciência de Dados**.
 
-O projeto utiliza uma base de dados da plataforma Zindi, com algumas modificações
-nos dados.
+O projeto utiliza uma base de dados da plataforma Zindi, com algumas modificações nos dados.
 
 # Projeto 
 
@@ -55,7 +54,7 @@ Ao final, teremos uma interface que apresenta todas as transações de compras r
 
 ## Parte 1: Modelagem dos dados
 
-Primeiro, iremos simular um sistema que registra transações financeiras sem fazer uso de interface gráfica. 
+Primeiramente, iremos simular um sistema que registra transações financeiras sem fazer uso de interface gráfica. Isto equivale à implementação da camada de modelo (lógica da aplicação) de um sistema.
 
 Como observamos, uma transação precisa de informações de: 
 > 1) Um cliente; 
@@ -118,7 +117,7 @@ Com posse desses requisitos, devemos considerar que seu código deve conter, **p
   - use `Datetime` com formatação &#8594; `YYYY/mm/ddTHH:mm:ssZ`
   - método `__str__` &#8594; `Cliente: cliente \n Produto: produto \n Hardware: hardware`
 
-> Lembre-se que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por instâncias" de outras classes. 
+> Observe que a classe `Transacao` deve ser uma composição de elementos, ou seja, será "alimentada por instâncias" de outras classes. 
 
 Uma visão macro é a seguinte:
 
